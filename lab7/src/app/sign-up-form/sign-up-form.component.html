@@ -1,0 +1,138 @@
+
+<div id="form-boundaries">
+    <label style="font-weight: bold; font-style: italic; font-size: x-large;">РЕГИСТРАЦИЯ ПОЧТОВОГО ЯЩИКА</label>
+    <br>
+    <br>
+    <label style="padding-top: 100%;">немецкие буквы нельзя</label>
+    <form id="inner-form" [formGroup]="signupForm">
+        <table class="form-table">
+            <col style="width: 40%;">
+            <col style="width: 50%;">
+            <tr>
+                <td class="left-column">E-mail:</td>
+                <td>
+                    <div class="cross-validation"
+                        [class.cross-validation-error]="signupForm.errors?.['identityRevealed'] && (signupForm.touched || signupForm.dirty)">
+                        <div class="form-group">
+                            <input type="text" id="email" class="form-control" formControlName='email' required>
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                <div id="email-invalid" *ngIf="email.errors?.['email']">
+                                    я сказал нельзя
+                                </div>
+                                <div id="email-required" *ngIf="email.errors?.['required']">
+                                    Email is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-column">Пароль:</td>
+                <td>
+                    <div class="cross-validation"
+                        [class.cross-validation-error]="signupForm.errors?.['identityRevealed'] && (signupForm.touched || signupForm.dirty)">
+                        <div class="form-group">
+                            <input type="text" id="password" class="form-control" formControlName='password' required>
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                class="alert alert-danger">
+                                <div id="password-required" *ngIf="password.errors?.['required']">
+                                    Карта не считана.
+                                </div>
+                                <div id="password-short" *ngIf="password.errors?.['minlength']">
+                                    Пароль должен быть номером вашей карты
+                                </div>
+                                <div id="password-invalid" *ngIf="password.errors?.['pattern']">
+                                    добавь нижнее подчеркивание, безопасность гарантирована: A, a, 1, _
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-column">Пароль (подтвердить):</td>
+                <td>
+                    <div class="cross-validation"
+                        [class.cross-validation-error]="passwordConfirm.errors?.['identityRevealed'] && (passwordConfirm.touched || passwordConfirm.dirty)">
+                        <div class="form-group">
+                            <input type="text" id="passwordConfirm" class="form-control" formControlName='passwordConfirm' required>
+                            <div *ngIf="passwordConfirm.invalid && (passwordConfirm.dirty || passwordConfirm.touched)"
+                                class="alert alert-danger">
+                                <div id="password-confirm-required" *ngIf="passwordConfirm.errors?.['required']">
+                                    Password confirmation is required
+                                </div>
+                                <div id="password-not-match" *ngIf="formErrors?.['passwordNotConfirmed']">
+                                     хароший пароль.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-column">Имя:</td>
+                <td>
+                    <div class="cross-validation"
+                        [class.cross-validation-error]="signupForm.errors?.['identityRevealed'] && (signupForm.touched || signupForm.dirty)">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-control" formControlName='name' required>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                <div id='name-required' *ngIf="name.errors?.['required']">
+                                    опять не андрей.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-column">Фамилия:</td>
+                <td>
+                    <div class="cross-validation"
+                        [class.cross-validation-error]="signupForm.errors?.['identityRevealed'] && (signupForm.touched || signupForm.dirty)">
+                        <div class="form-group">
+                            <input type="text" id="surname" class="form-control" formControlName='surname' required>
+                            <div *ngIf="surname.invalid && (surname.dirty || surname.touched)"
+                                class="alert alert-danger">
+                                <div id='surname-required' *ngIf="surname.errors?.['required']">
+                                    опять не балконский.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="cross-validation"
+                        [class.cross-validation-error]="signupForm.errors?.['identityRevealed'] && (signupForm.touched || signupForm.dirty)">
+                        <div class="form-group">
+                            <input type="checkbox" id="termsOfUse" class="form-control" formControlName='termsOfUse' required>
+                            хочу ежедневный гороскоп для девы и скорпиона <a></a>
+                            <div *ngIf="termsOfUse.invalid && (termsOfUse.dirty || termsOfUse.touched)"
+                                class="alert alert-danger">
+                                <div id='termsOfUse-required' *ngIf="termsOfUse.errors?.['required']">
+                                    вам это надо.
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table class="form-table">
+            
+            <tr>
+                <td>
+                    <!-- <div *ngIf="!signupForm.valid" class="alert alert-danger"> To signup fill all the fields</div> -->
+                    <div style="display: grid; justify-content: center;">
+                        <button id="signup-button" [disabled]="!signupForm.valid" (click)="submit()">Зарегистрироваться</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

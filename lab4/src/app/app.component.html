@@ -1,0 +1,12 @@
+<label>Введите коэффициенты уравнения:</label>
+<p> 
+    <input [(ngModel)]="a" > * x^2 + 
+    <input [(ngModel)]="b" > * x + 
+    <input [(ngModel)]="c" >
+    <child-comp  [a]="a" [b]="b" [c]="c"></child-comp>
+    
+    {{a}}
+    {{b}}
+    {{c}}  
+
+</p>

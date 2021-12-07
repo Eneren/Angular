@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>info</h1>
+<div mat-dialog-content>
+    <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>Full name</th>
+            <th>Gender</th>
+            <th>Birth date</th>
+            <th>Age</th>
+            <th>Registered</th>
+        </tr>
+        <tr>
+            <td>{{data.email}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.gender}}</td>
+            <td>{{data.birthDate}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.registered.date.substring(0,10)}}</td>
+        </tr>
+
+    </table>
+</div>

@@ -1,0 +1,21 @@
+<table>
+    <tr>
+      <th>Ім'я'</th>
+      <th>  </th>
+      <th>Стать</th>
+      <th>  </th>
+      <th>День народження</th>
+      <th>  </th>
+      <th>Вік</th>
+    </tr>
+    <tr *ngFor="let fv of favoriteVoters">
+      <td>{{fv.name}}</td>
+      <td></td>
+      <td>{{fv.gender}}</td>
+      <td></td>
+      <td>{{fv.birthDate}}</td>
+      <td></td>
+      <td>{{fv.age}}</td>
+    </tr>
+  
+  </table>
